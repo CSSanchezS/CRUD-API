@@ -21,22 +21,22 @@ public class ExampleController {
 	@Autowired
 	CarService carService;
 	
-	@GetMapping(value = "/get")
+	@GetMapping(value = "/get")//test to check that the controller is working
 	public String getMessage() {
 		return ("test Controller Charly boy");
 	}
 	
-	@GetMapping(value = "/messageToAPI")
+	@GetMapping(value = "/messageToAPI")//this message will be displayed when the end point will be called from other api 
 	public String responseOtherAPI() {
 		return "Hi from other API";
 	}
 	
-	@GetMapping(value = "/cars")
+	@GetMapping(value = "/cars")//here we show all car that we have stored in the db
 	public List<Car> getCars (){
 		return carService.getCars();
 	}
 	
-	@PostMapping(value = "car")
+	@PostMapping(value = "car")//here we save a car into the db
 	public Car saveCar(@RequestBody Car car) {
 		return carService.saveCar(car);
 	}
