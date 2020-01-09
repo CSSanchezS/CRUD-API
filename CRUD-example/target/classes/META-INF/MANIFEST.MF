@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: lambda-java-example
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: CarlosOmarSanchezSol
+Implementation-Vendor-Id: practice-CS
+Build-Jdk: 1.8.0_231
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/lambda-java-example
+Created-By: Maven Integration for Eclipse
+
