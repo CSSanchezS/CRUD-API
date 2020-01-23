@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CarDomain {
-	public int idCar;
-    public String name;
-    public String version;
-    public String model;
+	private int idCar;
+	private String name;
+    private String version;
+    private String model;
 
 }
