@@ -2,15 +2,20 @@ package example.model.dao;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import lombok.Data;
 
+@JsonSerialize
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Data
 @Entity
 @Table(name = "CAR")
 public class Car implements Serializable{
@@ -19,8 +24,8 @@ public class Car implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int idCar;
-    public String name;
-    public String version;
-    public String model;
+	private int idCar;
+	private String name;
+    private String version;
+    private String model;
 }
