@@ -1,8 +1,9 @@
 package example.controller;
 
 import java.util.List;
-import java.util.logging.Logger;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +24,8 @@ import example.service.CarService;
 @RequestMapping(value = "API1" )
 public class ExampleController {
 	
-	private final static Logger Log = Logger.getLogger(ExampleController.class.getName());
+	//private final static Logger Log = Logger.getLogger(ExampleController.class.getName());
+	Logger log = LoggerFactory.getLogger(ExampleController.class);
 	
 	@Autowired
 	CarService carService;
@@ -40,13 +42,18 @@ public class ExampleController {
 	
 	@GetMapping(value = "/cars")//here we show all car that we have stored in the db
 	public List<CarDomain> getCars (){
-		Log.info("show all cars tha we have stored in the data base");
+		//Log.info("show all cars tha we have stored in the data base");
+		log.error("error");
+		log.info("info");
+		log.debug("debug");
+		log.trace("trace");
+		log.warn("warn");
 		return carService.getCars();
 	}
 	
 	@GetMapping(value = "/car/{id}")
 	public CarDomain car(@PathVariable int id) {
-		Log.info("show a car stored in the data base with thw id gived "+id);
+		//Log.info("show a car stored in the data base with thw id gived "+id);
 		return carService.getCar(id);
 	}
 	
