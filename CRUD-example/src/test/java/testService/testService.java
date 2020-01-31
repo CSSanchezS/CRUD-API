@@ -67,7 +67,7 @@ public class testService extends AbstractJUnit4SpringContextTests {
 		when(repo.save(Dummies.DaoDummy())).thenReturn(Dummies.DaoDummy());
 		when(transformer.transformToDomain(Dummies.DaoDummy())).thenReturn(Dummies.DomainDummy());
 		CarDomain carDomain = carSer.saveCar(Dummies.DomainDummy());
-		doNothing().when(validationHelper).validateLength(Dummies.DomainDummy());
+		doNothing().when(validationHelper).validations(Dummies.DomainDummy());
 		Assert.assertNotNull(carDomain);
 
 	}
@@ -78,7 +78,7 @@ public class testService extends AbstractJUnit4SpringContextTests {
 		when(repo.save(Dummies.DaoDummy())).thenReturn(Dummies.DaoDummy());
 		when(transformer.transformToDomain(Dummies.DaoDummy())).thenReturn(Dummies.DomainDummy());
 		CarDomain carDomain = carSer.updateCar(Dummies.DomainDummy());
-		doNothing().when(validationHelper).validateLength(Dummies.DomainDummy());
+		doNothing().when(validationHelper).validations(Dummies.DomainDummy());
 		Assert.assertNotNull(carDomain);
 
 	}

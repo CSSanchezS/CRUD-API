@@ -2,7 +2,6 @@ package example.service;
 
 import java.util.List;
 
-import example.model.dao.Car;
 import example.model.domain.CarDomain;
 
 public interface CarService {
