@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import example.controller.ExampleController;
-import example.exception.ExceptionCatch;
+import example.exception.ExceptionBussines;
 import example.mapper.Transformer;
 import example.model.dao.Car;
 import example.model.domain.CarDomain;
@@ -87,7 +87,7 @@ public class CarServiceImpl implements CarService {
 			repo.deleteById(id);
 		}catch (Exception e) {
 			// TODO: handle exception
-			throw new ExceptionCatch("Car cannot be deleted, it has a relationship with a Driver");
+			throw new ExceptionBussines("Car cannot be deleted, it has a relationship with a Driver");
 		}
 		
 	}

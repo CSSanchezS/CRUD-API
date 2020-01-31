@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.exception.ExceptionCatch;
+import example.exception.ExceptionBussines;
+import example.exception.ExceptionNotFound;
 import example.model.dao.Driver;
 import example.model.domain.CarDomain;
 import example.model.domain.ErrorInfo;
@@ -45,10 +47,16 @@ public class ExampleController {
 	
 	@ControllerAdvice
 	public class ExceptionController {
-	   @ExceptionHandler
+	   @ExceptionHandler(ExceptionBussines.class)
 	   @ResponseBody
-	   public ErrorInfo exception(HttpServletRequest req, ExceptionCatch exception) {
+	   public ErrorInfo exception(HttpServletRequest req, ExceptionBussines exception) {
 	      return new ErrorInfo(HttpStatus.CONFLICT, req, exception);
+	   }
+	   
+	   @ExceptionHandler(ExceptionNotFound.class)
+	   @ResponseBody
+	   public ErrorInfo exceptionNotFound(HttpServletRequest req, ExceptionNotFound exception) {
+	      return new ErrorInfo(HttpStatus.NOT_FOUND, req, exception);
 	   }
 	}
 	
