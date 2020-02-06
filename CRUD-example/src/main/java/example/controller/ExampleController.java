@@ -20,16 +20,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import example.exception.ExceptionBussines;
 import example.exception.ExceptionNotFound;
 import example.model.dao.Driver;
+import example.model.dao.Location;
 import example.model.domain.CarDomain;
 import example.model.domain.ErrorInfo;
 import example.service.CarService;
 import example.service.DriverService;
+import example.service.LocationService;
 
 @CrossOrigin
 @RestController
@@ -44,6 +45,9 @@ public class ExampleController {
 	
 	@Autowired
 	DriverService driverService;
+	
+	@Autowired
+	LocationService locationService;
 	
 	@ControllerAdvice
 	public class ExceptionController {
@@ -117,6 +121,13 @@ public class ExampleController {
 	@PostMapping(value = "driver")
 	public Driver saveDriver(@RequestBody Driver driver) {
 		return driverService.saveDriver(driver);
+	}
+	
+	@GetMapping(value = "/mongoDB")
+	public List<Location> getLocation() {
+		List<Location> locations = new  ArrayList<Location>();
+		locations = locationService.getLocations();
+		return locations;
 	}
 
 }
